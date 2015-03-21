@@ -11,18 +11,27 @@ rename = require 'gulp-rename'
 concat = require 'gulp-concat'
 notify = require 'gulp-notify'
 cache = require 'gulp-cache'
+connect = require 'gulp-connect'
 livereload = require 'gulp-livereload'
 del = require 'del'
 
 gulp.task 'default', ['clean'], ->
-  gulp.start 'styles', 'scripts', 'images'
+  gulp.start 'styles', 'scripts', 'images', 'copy'
+
+gulp.task 'connect', ->
+  connect.server
+    root: 'dist'
+    livereload: true
+    port: 8081
 
 gulp.task 'watch', ->
   gulp.watch 'src/styles/**/*.scss', ['styles']
   gulp.watch 'src/app/**/*.js', ['scripts']
   gulp.watch 'src/assets/images/**/*', ['images']
 
-  livereload.listen()
+  livereload.listen
+    port: 35729
+    basePath: 'dist/'
 
   gulp.watch ['dist/**']
     .on 'change', livereload.changed
@@ -45,24 +54,30 @@ gulp.task 'styles', ->
   combined
 
 gulp.task 'scripts', ->
-  gulp.src 'src/app/**/*.js'
-    .pipe jshint('.jshintrc')
-    .pipe jshint.reporter('default')
-    .pipe concat('main.js')
-    .pipe gulp.dest('dist/assets/js')
-    .pipe rename( suffix: '.min' )
-    .pipe uglify()
-    .pipe gulp.dest('dist/assets/js')
-    .pipe notify( message: 'Scripts task complete.' )
+  gulp.src [
+    'src/app/**/*.js'
+  ]
+  .pipe jshint('.jshintrc')
+  .pipe jshint.reporter('default')
+  .pipe concat('main.js')
+  .pipe gulp.dest('dist/assets/js')
+  .pipe rename( suffix: '.min' )
+  .pipe uglify()
+  .pipe gulp.dest('dist/assets/js')
+  .pipe notify( message: 'Scripts task complete.' )
 
 gulp.task 'images', ->
   gulp.src 'src/assets/images/**/*'
-    .pipe imagemin
-      optimizationLevel: 3
-      progressive: true
-      interlaced: true
-    .pipe gulp.dest('dist/assets/images')
-    .pipe notify( message: 'Images task complete.' )
+  .pipe imagemin
+    optimizationLevel: 3
+    progressive: true
+    interlaced: true
+  .pipe gulp.dest('dist/assets/images')
+  .pipe notify( message: 'Images task complete.' )
+
+gulp.task 'copy', ->
+  gulp.src 'src/*.html'
+  .pipe gulp.dest('dist')
 
 gulp.task 'clean', (cb)->
   del [
