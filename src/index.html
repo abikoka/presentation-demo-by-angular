@@ -24,13 +24,27 @@
 
                /* The Pages */
 
-#i1 { left: 0%; background-color: #fff; }
+#i0 { left: 0%; background-color: #fff; }
 #i1 { left: 100%; background-color: #fff; }
-#i2 { left: 200%; background-color: #bbb; }
-#i3 { left: 300%; background-color: #777; }
-#i4 { left: 400%; background-color: #888; }
-#i5 { left: 500%; background-color: #999; }
-#i6 { left: 600%; background-color: #666; }
+#i2 { left: 200%; background-color: #fee; }
+#i3 { left: 300%; background-color: #eee; }
+#i4 { left: 400%; background-color: #edd; }
+#i5 { left: 500%; background-color: #ddd }
+#i6 { left: 600%; background-color: #dcc; }
+#i7 { left: 700%; background-color: #ccc; }
+#i8 { left: 800%; background-color: #cbb; }
+#i9 { left: 900%; background-color: #bbb; }
+#i10 { left: 1000%; background-color: #b60; }
+#i11 { left: 1100%; background-color: #aaa; }
+#i12 { left: 1200%; background-color: #a56; }
+#i13 { left: 1300%; background-color: #999; }
+#i14 { left: 1400%; background-color: #946; }
+#i15 { left: 1500%; background-color: #888; }
+#i16 { left: 1600%; background-color: #836; }
+#i17 { left: 1700%; background-color: #777; }
+#i18 { left: 1800%; background-color: #726; }
+#i19 { left: 1900%; background-color: #666; }
+#i20 { left: 2000%; background-color: #616; }
 
 
 
@@ -48,11 +62,27 @@
 /* The Sliding Action */
 /* TranslateX for better Performance. Translate3D for better Performance on Ipad. */
 
+#a0:target .page { -webkit-transform: translateX(-100%); -moz-transform: translateX(-100%); -o-transform: translateX(-100%); transform: translateX(-100%); }
 #a1:target .page { -webkit-transform: translateX(-100%); -moz-transform: translateX(-100%); -o-transform: translateX(-100%); transform: translateX(-100%); }
 #a2:target .page { -webkit-transform: translateX(-200%); -moz-transform: translateX(-200%); -o-transform: translateX(-200%); transform: translateX(-200%); }
 #a3:target .page { -webkit-transform: translateX(-300%); -moz-transform: translateX(-300%); -o-transform: translateX(-300%); transform: translateX(-300%); }
 #a4:target .page { -webkit-transform: translateX(-400%); -moz-transform: translateX(-400%); -o-transform: translateX(-400%); transform: translateX(-400%); }
 #a5:target .page { -webkit-transform: translateX(-500%); -moz-transform: translateX(-500%); -o-transform: translateX(-500%); transform: translateX(-500%); }
+#a6:target .page { -webkit-transform: translateX(-600%); -moz-transform: translateX(-600%); -o-transform: translateX(-600%); transform: translateX(-600%); }
+#a7:target .page { -webkit-transform: translateX(-700%); -moz-transform: translateX(-700%); -o-transform: translateX(-700%); transform: translateX(-700%); }
+#a8:target .page { -webkit-transform: translateX(-800%); -moz-transform: translateX(-800%); -o-transform: translateX(-800%); transform: translateX(-800%); }
+#a9:target .page { -webkit-transform: translateX(-900%); -moz-transform: translateX(-900%); -o-transform: translateX(-900%); transform: translateX(-900%); }
+#a10:target .page { -webkit-transform: translateX(-1000%); -moz-transform: translateX(-1000%); -o-transform: translateX(-1000%); transform: translateX(-1000%); }
+#a11:target .page { -webkit-transform: translateX(-1100%); -moz-transform: translateX(-1100%); -o-transform: translateX(-1100%); transform: translateX(-1100%); }
+#a12:target .page { -webkit-transform: translateX(-1200%); -moz-transform: translateX(-1200%); -o-transform: translateX(-1200%); transform: translateX(-1200%); }
+#a13:target .page { -webkit-transform: translateX(-1300%); -moz-transform: translateX(-1300%); -o-transform: translateX(-1300%); transform: translateX(-1300%); }
+#a14:target .page { -webkit-transform: translateX(-1400%); -moz-transform: translateX(-1400%); -o-transform: translateX(-1400%); transform: translateX(-1400%); }
+#a15:target .page { -webkit-transform: translateX(-1500%); -moz-transform: translateX(-1500%); -o-transform: translateX(-1500%); transform: translateX(-1500%); }
+#a16:target .page { -webkit-transform: translateX(-1600%); -moz-transform: translateX(-1600%); -o-transform: translateX(-1600%); transform: translateX(-1600%); }
+#a17:target .page { -webkit-transform: translateX(-1700%); -moz-transform: translateX(-1700%); -o-transform: translateX(-1700%); transform: translateX(-1700%); }
+#a18:target .page { -webkit-transform: translateX(-1800%); -moz-transform: translateX(-1800%); -o-transform: translateX(-1800%); transform: translateX(-1800%); }
+#a19:target .page { -webkit-transform: translateX(-1900%); -moz-transform: translateX(-1900%); -o-transform: translateX(-1900%); transform: translateX(-1900%); }
+#a20:target .page { -webkit-transform: translateX(-2000%); -moz-transform: translateX(-2000%); -o-transform: translateX(-2000%); transform: translateX(-2000%); }
 
 
 
@@ -75,6 +105,7 @@ function BlockMove(event) {
   <body ontouchmove="BlockMove(event);"> 
     <!-- These divs are used for anchor-jumps with the pseudoclass :target -->
 
+    <div id="a0">
     <div id="a1">
       <div id="a2">
         <div id="a3">
@@ -86,12 +117,13 @@ function BlockMove(event) {
           <table> 
             <tbody>
               <tr> 
-                <td><a href="#a1" id="p1">1</a></td> 
-                <td><a href="#a2" id="p2">2</a></td> 
-                <td><a href="#a3" id="p3">3</a></td>
-                <td><a href="#a4" id="p4">4</a></td>
-                <td><a href="#a5" id="p5">5</a></td>
-                <td><a href="#a6" id="p6">6</a></td>
+                <td><a href="#a1" id="p1">1:発表趣旨</a></td> 
+                <td><a href="#a2" id="p2">2:ホットモック</a></td> 
+                <td><a href="#a3" id="p3">3:DataBinding</a></td>
+                <td><a href="#a4" id="p4">4:作業分散化</a></td>
+                <td><a href="#a5" id="p5">5:製造効率向理由</a></td>
+                <td><a href="#a6" id="p6">6:AngularJSデモ</a></td>
+                <td><a href="#a7" id="p7">7:おわり</a></td>
               </tr> 
             </tbody>
           </table>
@@ -105,8 +137,7 @@ function BlockMove(event) {
           <div id="i1" class="page">
             <a href="#a3" class="backbutton"></a>
             <a href="#a2" class="nextbutton"></a>
-            <h1>Pure CSS Slideshow</h1>
-            <img src="pure-css-slideshow-1.png">
+            <h1>なんでこの発表するん？</h1>
           </div>
 
 
@@ -117,7 +148,7 @@ function BlockMove(event) {
             <a href="#a1" class="backbutton"></a>
             <a href="#a3" class="nextbutton"></a>
 
-            <h1>Simplified Demo</h1>
+            <h1>ホットモックがなぜ必要？</h1>
 
             <img src="pure-css-slideshow-2.png">
 
@@ -132,9 +163,7 @@ function BlockMove(event) {
             <a href="#a2" class="backbutton"></a>
             <a href="#a4" class="nextbutton"></a>
 
-            <h1>Check the Source Code</h1>
-
-            <img src="pure-css-slideshow-3.png">
+            <h1>データバインディングを活用しよう</h1>
 
           </div>
           <!-- Fourth Page #a4 -->
@@ -143,7 +172,7 @@ function BlockMove(event) {
             <a href="#a3" class="backbutton"></a>
             <a href="#a5" class="nextbutton"></a>
 
-            <h1>Test4</h1>
+            <h1>作り方を変えると作業を容易に分散化できる</h1>
 
             <img src="pure-css-slideshow-3.png">
 
@@ -154,9 +183,7 @@ function BlockMove(event) {
             <a href="#a4" class="backbutton"></a>
             <a href="#a6" class="nextbutton"></a>
 
-            <h1>Test5</h1>
-
-            <img src="pure-css-slideshow-3.png">
+            <h1>そのほか全体として製造効率がこう変わる</h1>
 
           </div>
 
@@ -164,11 +191,27 @@ function BlockMove(event) {
           <div id="i6" class="page">
 
             <a href="#a5" class="backbutton"></a>
+            <a href="#a7" class="nextbutton"></a>
+
+            <h1>AngularJSをデモします!</h1>
+
+            <div class="body">
+              このプレゼン資料で使っています。
+            </div>
+
+          </div>
+
+          <!-- Seventh Page #a7 -->
+          <div id="i7" class="page">
+
+            <a href="#a6" class="backbutton"></a>
             <a href="#a1" class="nextbutton"></a>
 
-            <h1>Test5</h1>
+            <h1>ご清聴ありがとうございました！ </h1>
 
-            <img src="pure-css-slideshow-3.png">
+            <div class="body">
+              <p>Javascriptのフレームワークを利用してみませんか？</p>
+            </div>
 
           </div>
 
@@ -176,7 +219,11 @@ function BlockMove(event) {
 
 
         </div>
+        </div>
+        </div>
+        </div>
       </div>
+    </div>
     </div>
 
 
@@ -237,7 +284,21 @@ table a {
 #a3:target #p3,
 #a4:target #p4,
 #a5:target #p5,
-#a6:target #p6 { background-color: red; color: #fff; }
+#a6:target #p6,
+#a7:target #p7,
+#a8:target #p8,
+#a9:target #p9,
+#a10:target #p10,
+#a11:target #p11,
+#a12:target #p12,
+#a13:target #p13,
+#a14:target #p14,
+#a15:target #p15,
+#a16:target #p16,
+#a17:target #p17,
+#a18:target #p18,
+#a19:target #p19,
+#a20:target #p20 { background-color: red; color: #fff; }
 
 table a:hover {
   background-color: #444;
