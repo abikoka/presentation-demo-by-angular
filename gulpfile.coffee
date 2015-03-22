@@ -16,7 +16,7 @@ livereload = require 'gulp-livereload'
 del = require 'del'
 
 gulp.task 'default', ['clean'], ->
-  gulp.start 'styles', 'scripts', 'images', 'copy'
+  gulp.start 'styles', 'scripts', 'images', 'copy', 'connect', 'watch'
 
 gulp.task 'connect', ->
   connect.server
@@ -28,6 +28,7 @@ gulp.task 'watch', ->
   gulp.watch 'src/styles/**/*.scss', ['styles']
   gulp.watch 'src/app/**/*.js', ['scripts']
   gulp.watch 'src/assets/images/**/*', ['images']
+  gulp.watch 'src/*.html', ['copy']
 
   livereload.listen
     port: 35729
@@ -78,6 +79,7 @@ gulp.task 'images', ->
 gulp.task 'copy', ->
   gulp.src 'src/*.html'
   .pipe gulp.dest('dist')
+  .pipe connect.reload()
 
 gulp.task 'clean', (cb)->
   del [
